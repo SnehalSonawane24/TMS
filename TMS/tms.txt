@@ -1,0 +1,355 @@
+# User Registration
+
+# Role - Doctor
+
+Method - POST
+Endpoint - http://127.0.0.1:8000/api/register/
+Payload - {
+  "username": "john_doe",
+  "name": "john Doe",
+  "email": "john@example.com",
+  "password": "123",
+  "role": "doctor",
+  "phone": "9999999999",
+  "gender": "Male",
+  "date_of_birth": "2000-08-01",
+  "specialization": "Heart",
+  "years_of_experience": 8,
+  "available": true,
+  "blood_group": "B+"
+}
+Response - {
+    "Success": true,
+    "Message": "User Registerd Successfully",
+    "Error": {
+        "code": "",
+        "message": "",
+        "fields": []
+    },
+    "Data": {
+        "id": 1
+    }
+}
+
+
+# Role - Doctor
+
+Method - POST
+Endpoint - http://127.0.0.1:8000/api/register/
+Payload - {
+  "username": "sayali",
+  "name": "Sayali More",
+  "email": "sayali@example.com",
+  "password": "123",
+  "role": "patient",
+  "phone": "9000000002",
+  "gender": "Female",
+  "date_of_birth": "1985-07-22",
+  "blood_group": "A-",
+  "medical_history": "Asthma since childhood, Allergic to penicillin, Had COVID-19 in 2021 with mild symptoms"
+}
+Response - {
+    "Success": true,
+    "Message": "User Registerd Successfully",
+    "Error": {
+        "code": "",
+        "message": "",
+        "fields": []
+    },
+    "Data": {
+        "id": 7
+    }
+}
+
+# User Log In
+
+# Role - Doctor
+
+Method- POST
+Endpoint- http://127.0.0.1:8000/api/login/
+Payload- {
+  "username": "john_doe",
+  "password": "123"
+}
+Response-{
+    "Success": true,
+    "Message": "Login successful",
+    "Data": {
+        "token": "f042fddfa7697cfd1c830cda2629c79a69d748f8",
+        "username": "john_doe"
+    },
+    "Error": null
+}
+
+# User Log In
+
+# Role - Patient
+Method- POST
+Endpoint- http://127.0.0.1:8000/api/login/
+Payload- {
+  "username": "sayali",
+  "password": "123"
+}
+Response- {
+    "Success": true,
+    "Message": "Login successful",
+    "Data": {
+        "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1NDE1NzI3OSwiaWF0IjoxNzU0MDcwODc5LCJqdGkiOiJmZmE4OTI0MGNlZGM0MTViODc2MWZlMmM3MTc2ZmRlMCIsInVzZXJfaWQiOjl9.ELfVZhKdCIbvGIrnmoGgzLmZniVmso0gaWVnrt31DdE",
+        "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU0MDcxMTc5LCJpYXQiOjE3NTQwNzA4NzksImp0aSI6ImRmYTg2NzdlMjNjYTQ3ZGQ5YTQzMjM3NGU0M2IxOTgxIiwidXNlcl9pZCI6OX0.Avg4evYawwTgsdtln7YORAOec_ylVhAGC4Wkul0u1Lo",
+        "username": "sayali"
+    },
+    "Error": null
+}
+
+# Get all User 
+Method- GET
+Endpoint- http://127.0.0.1:8000/api/users/
+Headers - Authorization Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU0MDcxMTc5LCJpYXQiOjE3NTQwNzA4NzksImp0aSI6ImRmYTg2NzdlMjNjYTQ3ZGQ5YTQzMjM3NGU0M2IxOTgxIiwidXNlcl9pZCI6OX0.Avg4evYawwTgsdtln7YORAOec_ylVhAGC4Wkul0u1Lo
+Response- {
+    "Success": true,
+    "Message": "User list fetched successfully",
+    "Error": {
+        "code": "",
+        "message": "",
+        "fields": []
+    },
+    "Data": {
+        "users": [
+            {
+                "id": 8,
+                "username": "john_doe",
+                "email": "john@example.com",
+                "role": "doctor",
+                "phone": "9999999999",
+                "gender": "Male",
+                "date_of_birth": "2000-08-01",
+                "specialization": "Heart",
+                "years_of_experience": 8,
+                "available": true,
+                "blood_group": "B+",
+                "medical_history": null
+            },
+            {
+                "id": 9,
+                "username": "sayali",
+                "email": "sayali@example.com",
+                "role": "patient",
+                "phone": "9000000002",
+                "gender": "Female",
+                "date_of_birth": "1985-07-22",
+                "specialization": null,
+                "years_of_experience": null,
+                "available": false,
+                "blood_group": "A-",
+                "medical_history": "Asthma since childhood, Allergic to penicillin, Had COVID-19 in 2021 with mild symptoms"
+            },
+            {
+                "id": 10,
+                "username": "priya",
+                "email": "priya@example.com",
+                "role": "patient",
+                "phone": "9000888002",
+                "gender": "Female",
+                "date_of_birth": "1985-02-22",
+                "specialization": null,
+                "years_of_experience": null,
+                "available": false,
+                "blood_group": "0+",
+                "medical_history": "Allergic to penicillin, Had COVID-19 in 2021 with mild symptoms"
+            },
+            {
+                "id": 11,
+                "username": "Ram",
+                "email": "ram@example.com",
+                "role": "patient",
+                "phone": "9000888062",
+                "gender": "Male",
+                "date_of_birth": "2000-02-20",
+                "specialization": null,
+                "years_of_experience": null,
+                "available": false,
+                "blood_group": "B+",
+                "medical_history": "Blood pressure from 2020"
+            },
+            {
+                "id": 12,
+                "username": "kumar",
+                "email": "kumar@example.com",
+                "role": "doctor",
+                "phone": "9999979999",
+                "gender": "Male",
+                "date_of_birth": "1989-08-01",
+                "specialization": "Eye",
+                "years_of_experience": 5,
+                "available": true,
+                "blood_group": "O+",
+                "medical_history": null
+            }
+        ]
+    }
+}
+
+# Create Appointment
+Endpoint- http://127.0.0.1:8000/api/appointments/
+Headers- Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU0MDcxMTc5LCJpYXQiOjE3NTQwNzA4NzksImp0aSI6ImRmYTg2NzdlMjNjYTQ3ZGQ5YTQzMjM3NGU0M2IxOTgxIiwidXNlcl9pZCI6OX0.Avg4evYawwTgsdtln7YORAOec_ylVhAGC4Wkul0u1Lo
+Payload- {
+  "patient": 9,
+  "doctor": 8,
+  "symptoms": "Headache and fever"
+}
+Response-{
+    "Success": true,
+    "Message": "Appointment created",
+    "Error": {
+        "code": "",
+        "message": "",
+        "fields": []
+    },
+    "Data": {
+        "id": 7
+    }
+}
+
+
+# Create Appointment
+Endpoint- http://127.0.0.1:8000/api/appointments/
+Headers- Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU0MDcxMTc5LCJpYXQiOjE3NTQwNzA4NzksImp0aSI6ImRmYTg2NzdlMjNjYTQ3ZGQ5YTQzMjM3NGU0M2IxOTgxIiwidXNlcl9pZCI6OX0.Avg4evYawwTgsdtln7YORAOec_ylVhAGC4Wkul0u1Lo
+Payload- {
+  "patient": 10,
+  "doctor": 8,
+  "status": "completed",
+  "scheduled_for": "2025-08-05T15:30:00Z",
+  "symptoms": "Headache and fever for the past 3 days",
+  "notes": "Patient has mild dehydration and sleep issues",
+  "prescription": "Paracetamol 500mg, twice a day for 3 days",
+  "is_paid": true
+}
+Response-{
+    "Success": true,
+    "Message": "Appointment created",
+    "Error": {
+        "code": "",
+        "message": "",
+        "fields": []
+    },
+    "Data": {
+        "id": 7
+    }
+}
+
+# Get Token
+
+Endpoint-http://127.0.0.1:8000/api/token/
+Method-POST
+Payload-{
+  "username": "kumar",
+  "password": "123"
+}
+{
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1NDE5NzkxNCwiaWF0IjoxNzU0MTExNTE0LCJqdGkiOiI0ZTY3ODY3N2VhMzQ0OGY2YTg3MGQ0MGZmOTRiY2ViZCIsInVzZXJfaWQiOjEyfQ.ZWx4Zq7-HErcUOVUjRXb1w_RyGD1tCkh_0Zy6lkrpoY",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU0MTExODE0LCJpYXQiOjE3NTQxMTE1MTQsImp0aSI6IjYyMDJjOGE1NjNhMjQzYWJiOTZiMTIzN2Y1YTE0M2UwIiwidXNlcl9pZCI6MTJ9.J9xKJThdkq23KFnOOQztxi7sbwQKlHqiM4jKab7UvOI"
+}
+
+
+# Refresh Token
+Endpoint-http://127.0.0.1:8000/api/token/refresh/
+Method-POST
+Payload-{
+  "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1NDE5NTMyOCwiaWF0IjoxNzU0MTA4OTI4LCJqdGkiOiI1Y2M2NjIwYjJmOGI0MzQ1OTQ0Yzc0YTZlZDZkNjMwOCIsInVzZXJfaWQiOjEyfQ.YAWhlf8ZUQHBFrWK26vCHmq1KyzITDFWpJlZnAXDKxE"
+}
+Response-{
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU0MTExMDY4LCJpYXQiOjE3NTQxMDg5MjgsImp0aSI6ImE4YjEyMmE0ZmVmNzQzMTJiYTU4YmEyMTc1ZDZmY2UwIiwidXNlcl9pZCI6MTJ9.pS2C2WFSxdSRospyWf1ov0G3fxjFlnvlsWYU3oLMBlM",
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1NDE5NzE2OCwiaWF0IjoxNzU0MTEwNzY4LCJqdGkiOiJmMDhmM2VhYjZhNDM0OWRjYmYxZmYzMDJjMTZmMGRhMiIsInVzZXJfaWQiOjEyfQ.AWpfOhORSvBXHlkFCsctcHxuZ2d5qnwRo8Nl94veS9M"
+}
+
+
+# Get Doctor List
+Endpoint-http://127.0.0.1:8000/api/doctor/
+Method- GET
+Headers- Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU0MDcxMTc5LCJpYXQiOjE3NTQwNzA4NzksImp0aSI6ImRmYTg2NzdlMjNjYTQ3ZGQ5YTQzMjM3NGU0M2IxOTgxIiwidXNlcl9pZCI6OX0.Avg4evYawwTgsdtln7YORAOec_ylVhAGC4Wkul0u1Lo
+Response- {
+    "Success": true,
+    "Message": "Doctor list fetched successfully",
+    "Error": {
+        "code": "",
+        "message": "",
+        "fields": []
+    },
+    "Data": {
+        "doctors": [
+            {
+                "id": 8,
+                "username": "john_doe",
+                "email": "john@example.com",
+                "role": "doctor",
+                "phone": "9999999999",
+                "gender": "Male",
+                "date_of_birth": "2000-08-01",
+                "specialization": "Heart",
+                "years_of_experience": 8,
+                "available": true,
+                "blood_group": "B+",
+                "medical_history": null
+            },
+            {
+                "id": 12,
+                "username": "kumar",
+                "email": "kumar@example.com",
+                "role": "doctor",
+                "phone": "9999979999",
+                "gender": "Male",
+                "date_of_birth": "1989-08-01",
+                "specialization": "Eye",
+                "years_of_experience": 5,
+                "available": true,
+                "blood_group": "O+",
+                "medical_history": null
+            }
+        ]
+    }
+}
+
+
+# Get Patients List
+Endpoint- http://127.0.0.1:8000/api/my-patients/
+Method- GET
+Headers- Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU0MDcxMTc5LCJpYXQiOjE3NTQwNzA4NzksImp0aSI6ImRmYTg2NzdlMjNjYTQ3ZGQ5YTQzMjM3NGU0M2IxOTgxIiwidXNlcl9pZCI6OX0.Avg4evYawwTgsdtln7YORAOec_ylVhAGC4Wkul0u1Lo
+Response- {
+    "Success": true,
+    "Message": "Patients data fetched successfully",
+    "Error": {
+        "code": "",
+        "message": "",
+        "fields": []
+    },
+    "Data": {
+        "patients": [
+            {
+                "id": 7,
+                "status": "pending",
+                "timestamp": "2025-08-02T03:20:52.933339Z",
+                "scheduled_for": "2025-08-02T03:20:52.930340Z",
+                "symptoms": "Headache and fever",
+                "report": null,
+                "notes": null,
+                "prescription": null,
+                "is_paid": false,
+                "patient": 9,
+                "doctor": 8
+            },
+            {
+                "id": 9,
+                "status": "completed",
+                "timestamp": "2025-08-02T03:34:58.783637Z",
+                "scheduled_for": "2025-08-05T15:30:00Z",
+                "symptoms": "Headache and fever for the past 3 days",
+                "report": null,
+                "notes": "Patient has mild dehydration and sleep issues",
+                "prescription": "Paracetamol 500mg, twice a day for 3 days",
+                "is_paid": true,
+                "patient": 10,
+                "doctor": 8
+            }
+        ]
+    }
+}
